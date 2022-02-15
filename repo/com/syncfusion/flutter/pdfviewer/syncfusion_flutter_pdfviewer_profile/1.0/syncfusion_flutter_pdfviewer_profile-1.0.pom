@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.syncfusion.flutter.pdfviewer</groupId>
+  <artifactId>syncfusion_flutter_pdfviewer_profile</artifactId>
+  <version>1.0</version>
+  <packaging>aar</packaging>
+  <dependencies>
+    <dependency>
+      <groupId>io.flutter</groupId>
+      <artifactId>flutter_embedding_profile</artifactId>
+      <version>1.0.0-241c87ad800beeab545ab867354d4683d5bfb6ce</version>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
+</project>
