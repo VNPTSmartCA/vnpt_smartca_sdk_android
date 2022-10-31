@@ -39,15 +39,7 @@ dependencies {
     releaseImplementation 'com.vnpt.vnpt_smartca_sdk.onetime_ca:flutter_release:1.0'
 }
 ```
-<font size="3">**Bước 3:**</font> Cấu hình file <span style="color:red"> AndroidManifest.xml</span> (app) như dưới
 
-```gradle
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-feature android:name="android.hardware.camera" />  
-    
-```
 <font size="4"> **3. Các chức năng chính:**</font>
 
 * Kích hoạt tài khoản/lấy thông tin xác thực người dùng (accessToken và credentialId)
@@ -83,7 +75,12 @@ Thêm FlutterActivity trong file  <span style="color:red"> AndroidManifest.xml</
 
 ```xml
  <application
- <!-- .....-->
+
+        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+        <uses-permission android:name="android.permission.CAMERA" />
+        <uses-feature android:name="android.hardware.camera" />        
+
  <activity
             android:name="io.flutter.embedding.android.FlutterActivity"
             android:theme="@style/Theme.Smartca_android_example"
