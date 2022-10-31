@@ -38,7 +38,10 @@ dependencies {
 
 * Kích hoạt tài khoản/lấy thông tin xác thực người dùng (accessToken và credentialId)
 * Xác nhận giao dịch ký số
-
+* Thông tin người dùng
+* Lịch sử giao dịch
+* Chứng thư số
+* Giao diện chung
 
 Thêm đoạn code dưới đây tại Activity muốn kết nối với SDK trước khi sử dụng các chức năng.
 ```Kotlin
@@ -139,8 +142,100 @@ Sau khi lấy được **accessToken** và **credentialId** của người dùng
         }
     }
 ```
+<font size="4"> **3.3 Lấy thông tin của người dùng:**</font>
 
-<font size="4"> **3.3 Hủy kết nối SDK:**</font>
+Sau khi kích hoạt tài khoản thành công, Đối tác tích hợp lấy thông tin người dùng đã được đăng ký như sau:
+
+```Kotlin
+
+    onetimeVNPTSmartCA.getAccountInfo { result ->
+             
+                when (result.status) {
+                    SmartCAResultCode.SUCCESS_CODE -> {
+                        // Xử lý khi confirm thành công
+                    }
+                    else -> {
+                        // Xử lý khi confirm thất bại
+                    }
+                }
+            }
+    
+```
+<font size="4"> **3.4 Lịch sử thông tin giao dịch:**</font>
+
+ Đối tác tích hợp lấy thông tin lịch sử các giao dịch như sau:
+ 
+```Kotlin
+
+     onetimeVNPTSmartCA.getAuthentication { result ->
+                when (result.status) {
+                    SmartCAResultCode.SUCCESS_CODE -> {
+                        onetimeVNPTSmartCA.getTransactionHistory { result ->
+                            when (result.status) {
+                                SmartCAResultCode.SUCCESS_CODE -> {
+                                    // Xử lý khi thành công
+                                }
+                                else -> {
+                                    // Xử lý khi thất bại
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+```
+
+<font size="4"> **3.5 Lấy thông tin chứng thư số:**</font>
+
+Đối tách tích hợp lấy thông tin chứng thư số như sau:
+
+```Kotlin
+
+    onetimeVNPTSmartCA.getAuthentication { result ->
+                when (result.status) {
+                    SmartCAResultCode.SUCCESS_CODE -> {
+                        onetimeVNPTSmartCA.getCertification { result ->
+                            when (result.status) {
+                                SmartCAResultCode.SUCCESS_CODE -> {
+                                    // Xử lý khi thành công
+                                }
+                                else -> {
+                                    // Xử lý khi thất bại
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+```
+
+
+<font size="4"> **3.6 Giao diện gộp chung:**</font>
+
+Đối tác có thể tích hợp giao diện có sẵn bao gồm các chức năng **Chứng thư số**, **Lịch sử giao dịch**, **Thông tin tài khoản** như sau:
+
+
+```Kotlin
+ onetimeVNPTSmartCA.getAuthentication { result ->
+                when (result.status) {
+                    SmartCAResultCode.SUCCESS_CODE -> {
+                        onetimeVNPTSmartCA.getMainInfo { result ->
+                            when (result.status) {
+                                SmartCAResultCode.SUCCESS_CODE -> {
+                                    // Xử lý khi thành công
+                                }
+                                else -> {
+                                    // Xử lý khi thất bại
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+```
+
+<font size="4"> **3.7 Hủy kết nối SDK:**</font>
 
 ```Kotlin
  override fun onDestroy() {
