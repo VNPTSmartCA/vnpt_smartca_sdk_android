@@ -14,8 +14,6 @@ Project sử dụng Java 8
 
 <font size="3">**Bước 2:**</font> Cấu hình file <span style="color:red"> build.grandle</span> (app) như dưới
 
-
-
 ```gradle
 repositories {
     maven {
@@ -26,6 +24,13 @@ repositories {
         url "https://storage.googleapis.com/download.flutter.io"
     }
 }
+android {
+    ......
+   aaptOptions {
+        noCompress "bic"
+    }
+    .....
+}
 
 dependencies {
     // ...
@@ -33,6 +38,15 @@ dependencies {
     debugImplementation 'com.vnpt.vnpt_smartca_sdk.onetime_ca:flutter_debug:1.0'
     releaseImplementation 'com.vnpt.vnpt_smartca_sdk.onetime_ca:flutter_release:1.0'
 }
+```
+<font size="3">**Bước 3:**</font> Cấu hình file <span style="color:red"> AndroidManifest.xml</span> (app) như dưới
+
+```gradle
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" />  
+    
 ```
 <font size="4"> **3. Các chức năng chính:**</font>
 
