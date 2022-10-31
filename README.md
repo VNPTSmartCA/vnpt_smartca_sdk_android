@@ -74,12 +74,12 @@ class MainActivity : AppCompatActivity() {
 Thêm FlutterActivity trong file  <span style="color:red"> AndroidManifest.xml</span> như dưới
 
 ```xml
- <application
 
         <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
         <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
         <uses-permission android:name="android.permission.CAMERA" />
-        <uses-feature android:name="android.hardware.camera" />        
+        <uses-feature android:name="android.hardware.camera" />    
+ <application    
 
  <activity
             android:name="io.flutter.embedding.android.FlutterActivity"
