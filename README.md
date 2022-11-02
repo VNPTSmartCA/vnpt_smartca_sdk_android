@@ -34,7 +34,8 @@ android {
 
 dependencies {
     // ...
-    implementation files('..path_to_android_one_time_ca_sdk_folder\\onetimeca_vnpt_smartca_library.aar')
+    implementation files('..path_to_android_one_time_ca_sdk_folder\\ekyc_sdk-release-v3.2.4.aar')
+    implementation files('..path_to_android_one_time_ca_sdk_folder\\sdk_vnpt_smartca_library-release.aar')
     debugImplementation 'com.vnpt.vnpt_smartca_sdk.onetime_ca:flutter_debug:1.0'
     releaseImplementation 'com.vnpt.vnpt_smartca_sdk.onetime_ca:flutter_release:1.0'
 }
