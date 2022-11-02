@@ -29,6 +29,12 @@ android {
    aaptOptions {
         noCompress "bic"
     }
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
     //.....
 }
 
