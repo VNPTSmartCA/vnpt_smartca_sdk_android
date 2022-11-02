@@ -81,19 +81,30 @@ Thêm FlutterActivity trong file  <span style="color:red"> AndroidManifest.xml</
         <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
         <uses-permission android:name="android.permission.CAMERA" />
         <uses-feature android:name="android.hardware.camera" />    
+
  <application    
 
- <activity
+        <activity
             android:name="io.flutter.embedding.android.FlutterActivity"
             android:theme="@style/Theme.Smartca_android_example"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
-            android:windowSoftInputMode="adjustResize"
-            />
+            android:windowSoftInputMode="adjustResize"/>
 
-    </application>
+ </application>
 
 ```
+Bổ sung thuộc tính dưới đây vào file <span style="color:red"> gradle.properties</span> như dưới
+
+```xml
+    android.enableJetifier=true
+```
+Bổ sung thuộc tính dưới đây vào file <span style="color:red"> proguard-rules.pro </span> như dưới
+
+```xml
+    -keep class ai.icenter.face3d.native_lib.Face3DConfig { *; }
+```
+
 <font size="4"> **3.1 Kích hoạt tài khoản/lấy accessToken và credentialId của người dùng:**</font>
 
 SDK sẽ thực hiện kiểm tra trạng thái tài khoản và chứng thư của khách hàng như: đã kích hoạt hay chưa, chứng thư hợp lệ hay không, tự động làm mới token khi hết hạn,.... Thành công SDK sẽ trả về **accessToken** và **credentialId** của người dùng. 
