@@ -100,12 +100,12 @@ Thêm FlutterActivity trong file  <span style="color:red"> AndroidManifest.xml</
  </application>
 
 ```
-Bổ sung thuộc tính dưới đây vào file <span style="color:red"> gradle.properties</span> như dưới
+Bổ sung thuộc tính dưới đây vào file <span style="color:red"> gradle.properties</span>
 
 ```xml
     android.enableJetifier=true
 ```
-Bổ sung thuộc tính dưới đây vào file <span style="color:red"> proguard-rules.pro </span> như dưới
+Bổ sung thuộc tính dưới đây vào file <span style="color:red"> proguard-rules.pro </span>
 
 ```xml
     -keep class ai.icenter.face3d.native_lib.Face3DConfig { *; }
