@@ -14,6 +14,8 @@ Project sử dụng Java 8
 
 <font size="3">**Bước 2:**</font> Cấu hình file <span style="color:red"> build.grandle</span> (app) như dưới
 
+<font size="4"> **2.1 Có sử dụng eKyc của VNPT:**</font>
+
 ```gradle
 repositories {
     maven {
@@ -43,6 +45,42 @@ dependencies {
     //Đường dẫn đến thư mục giải nén ở bước 1
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation files('..path_to_android_one_time_ca_sdk_folder\\ekyc_sdk-release-v3.2.4.aar')
+    implementation files('..path_to_android_one_time_ca_sdk_folder\\sdk_vnpt_smartca_library-release.aar')
+    debugImplementation 'com.vnpt.vnpt_smartca_sdk.onetime_ca:flutter_debug:1.0'
+    releaseImplementation 'com.vnpt.vnpt_smartca_sdk.onetime_ca:flutter_release:1.0'
+}
+```
+
+<font size="4"> **2.2 Sử dụng eKyc của nhà cung cấp khá:**</font>
+
+```gradle
+repositories {
+    maven {
+        //Đường dẫn đến thư mục giải nén ở bước 1
+        url '..path_to_android_one_time_ca_sdk_folder\\repo'
+    }
+    maven {
+        url "https://storage.googleapis.com/download.flutter.io"
+    }
+}
+android {
+    //......
+   aaptOptions {
+        noCompress "bic"
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+    //.....
+}
+
+dependencies {
+    // ...
+    //Đường dẫn đến thư mục giải nén ở bước 1
+    implementation 'com.google.code.gson:gson:2.8.6'
     implementation files('..path_to_android_one_time_ca_sdk_folder\\sdk_vnpt_smartca_library-release.aar')
     debugImplementation 'com.vnpt.vnpt_smartca_sdk.onetime_ca:flutter_debug:1.0'
     releaseImplementation 'com.vnpt.vnpt_smartca_sdk.onetime_ca:flutter_release:1.0'
