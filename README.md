@@ -51,7 +51,7 @@ dependencies {
 }
 ```
 
-<font size="4"> **2.2 Sử dụng eKyc của nhà cung cấp khá:**</font>
+<font size="4"> **2.2 Sử dụng eKyc của nhà cung cấp khác:**</font>
 
 ```gradle
 repositories {
